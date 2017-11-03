@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset=UTF-8>
+<title>Discord Nomic</title>
+<link href=blue.css rel=stylesheet>
+<link href=dark.css rel=stylesheet id=dark>
+<style>
+	#jump { margin-top: 2em; background: white }
+	.rule { width: 50%; margin: 2% }
+	.history { width: 42%; margin: 2%; padding-top: 1.5em }
+	.rule b { text-decoration: underline }
+</style>
+
+<h1>Discord Nomic Rules</h1>
+
+<form action='javascript:jump()'>
+	<input type=text id=jump class=centered placeholder='Jump to rule #'></input>
+</form>
+
+<div class=flexbox>
+	<fieldset id=101 class=rule>
+		<legend><a href='#101'>I.R. 101</a></legend>
+		All players must always abide by all the rules then in effect, in the
+		form in which they are then in effect. The rules in the Initial Set are
+		in effect whenever a game begins. The Initial Set consists of Rules
+		101-116 (immutable) and 201-213 (mutable).
+	</fieldset>
+	<ul class=history>
+		<li>Part of the Initial Set
+</div>
+
+<div class=flexbox>
+	<fieldset id=102 class=rule>
+		<legend><a href='#102'>I.R. 102</a></legend>
+		Initially rules in the 100's are immutable and rules in the 200's are
+		mutable. Rules subsequently enacted or transmuted (that is, changed
+		from immutable to mutable or vice versa) may be immutable or mutable
+		regardless of their numbers, and rules in the Initial Set may be
+		transmuted regardless of their numbers.
+	</fieldset>
+	<ul class=history>
+		<li>Part of the Initial Set
+</div>
+
+<div class=flexbox>
+	<fieldset id=103 class=rule>
+		<legend><a href='#103'>I.R. 103</a></legend>
+		A rule-change is any of the following: (1) the enactment, repeal, or
+		amendment of a mutable rule; (2) the enactment, repeal, or amendment of
+		an amendment of a mutable rule; or (3) the transmutation of an
+		immutable rule into a mutable rule or vice versa.
+
+		<p>(Note: This definition implies that, at least initially, all new
+		rules are mutable; immutable rules, as long as they are immutable, may
+		not be amended or repealed; mutable rules, as long as they are mutable,
+		may be amended or repealed; any rule of any status may be transmuted;
+		no rule is absolutely immune to change.)
+	</fieldset>
+	<ul class=history>
+		<li>Part of the Initial Set
+</div>
+
+<div class=flexbox>
+	<fieldset id=104 class=rule>
+		<legend><a href='#104'>I.R. 104</a></legend>
+		All rule-changes proposed in the proper way shall be voted on. They
+		will be adopted if and only if they receive the required number of
+		votes.
+	</fieldset>
+	<ul class=history>
+		<li>Part of the Initial Set
+</div>
+
+<div class=flexbox>
+	<fieldset id=105 class=rule>
+		<legend><a href='#105'>I.R. 105</a></legend>
+		All players are eligible voters. Non-players are not eligible voters.
+	</fieldset>
+	<ul class=history>
+		<li>Part of the Initial Set
+		<li>Transmuted to a mutable rule by Proposal #0C
+		<li>Amended by Proposal #0C
+		<li>Transmuted to an immutable rule by Proposal #0C
+		<li>Ruling 11:17-WML-003: “no other mechanism may govern
+		eligibility until and unless rule changes dictate otherwise”
+</div>
+
+<nav class=flexbox>
+	<span class=centered></span>
+	<a onclick='switch_theme()'>Switch theme</a>
+	<a href='https://github.com/Grimy'>By Grimy</a>
+</nav>
+
+<script>
+	const $ = selector => document.querySelector(selector);
+	$('#dark').disabled = !localStorage.dark;
+
+	function switch_theme() {
+		let light = $('#dark').disabled = !$('#dark').disabled;
+		localStorage.dark = light ? '' : '1';
+	}
+
+	function jump() {
+		location = location.toString().replace(/#\d+/, '') + '#' + $('#jump').value;
+	}
+</script>
