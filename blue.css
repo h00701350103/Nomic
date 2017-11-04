@@ -29,7 +29,7 @@ nav { padding: 0 5%; border-width: 1px 0 }
 nav > a { padding: 1ex 1em; font-size: 1.1em; text-align: center }
 nav > a { white-space: nowrap; color: inherit; text-decoration: none }
 
-.rule { background: white; padding: 2ex 2em }
+.rule { background: white; padding: 1.5ex 1em 1ex 1em }
 .rule { border: 1px solid #007bb3; border-radius: 1ex; box-shadow: 1px 1px 3px -1px #007bb3 }
 
 .ok, .warning, .ko, .info { padding: 1ex 1em; margin: 1em 2ex; border: 1px solid #007bb3; border-radius: 0.5ex }
