@@ -1,0 +1,4 @@
+.inactive:not(:target) { border: none; background: transparent }
+.inactive:not(:target) >p { display: none }
+.inactive:not(:target) ~.history { padding: 0 }
+.inactive:not(:target) ~.history >:not(:last-child) { display: none }

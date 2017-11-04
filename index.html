@@ -3,8 +3,10 @@
 <title>Discord Nomic</title>
 <link href=blue.css rel=stylesheet>
 <link href=dark.css rel=stylesheet id=dark>
+<link href=inactive.css rel=stylesheet id=inactive>
 <style>
-	#jump { margin-top: 2em; background: white }
+	nav { align-items: center }
+	#jump { background: white; width: 10em }
 	.rule { width: 50%; margin: 2% }
 	.history { width: 45%; margin: 0; padding: 2ex 0 0 0; font-size: 0.95em }
 	.inactive { box-shadow: none; opacity: 0.5 }
@@ -12,9 +14,14 @@
 
 <h1>Discord Nomic Rules</h1>
 
-<form action='javascript:jump()'>
-	<input type=text id=jump class=centered placeholder='Jump to rule #'></input>
-</form>
+<nav class=flexbox>
+	<form action='javascript:jump()'>
+		<input type=text id=jump class=centered placeholder='Jump to rule #'></input>
+	</form>
+	<span class=centered></span>
+	<a onclick='switch_inactive(this)'>Show amended/repealed rules</a>
+	<a onclick='switch_theme()'>Switch theme</a>
+</nav>
 
 <div class=flexbox>
 	<fieldset id=101 class=rule>
@@ -260,7 +267,7 @@
 <div class=flexbox>
 	<fieldset id=203 class='rule inactive'>
 		<legend><a href='#203'>M.R. 203</a></legend>
-		A rule-change is adopted if and only if the vote is unanimous among the
+		<p>A rule-change is adopted if and only if the vote is unanimous among the
 		eligible voters. If this rule is not amended by the end of the second
 		complete circuit of turns, it automatically changes to require only a
 		simple majority.
@@ -443,19 +450,20 @@
 		<li>Amends <a href='#203'>M.R. 203</a>
 </div>
 
-<nav class=flexbox>
-	<span class=centered></span>
-	<a onclick='switch_theme()'>Switch theme</a>
-	<a href='https://github.com/Grimy'>By Grimy</a>
-</nav>
-
 <script>
 	const $ = selector => document.querySelector(selector);
 	$('#dark').disabled = !localStorage.dark;
+	$('#inactive').disabled = !!localStorage.show;
 
 	function switch_theme() {
 		let light = $('#dark').disabled = !$('#dark').disabled;
 		localStorage.dark = light ? '' : '1';
+	}
+
+	function switch_inactive(a) {
+		let show = $('#inactive').disabled = !$('#inactive').disabled;
+		localStorage.show = show ? 1 : '';
+		a.innerText = (show ? 'Hide' : 'Show') + ' amended/repealed rules';
 	}
 
 	function jump() {
